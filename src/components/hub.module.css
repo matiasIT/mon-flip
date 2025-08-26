@@ -1,0 +1,172 @@
+/* Página y contenedor */
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg,#1e0033,#320046);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.hub {
+  background: #2a0040;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px #0006;
+  padding: 15px;
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Header: depósitos + balance */
+.hubHeader {
+  display: grid;
+  grid-template-columns: fr1fr; /* ← corregido (antes: "fr fr") */
+  width: 100%;
+  gap: 10px;
+}
+
+.depositClaim {
+  background: linear-gradient(90deg,#320046,#6c0ff580);
+  padding: 7px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* filas de inputs/botones dentro de deposit/claim */
+.formRow {
+  display: flex;
+  gap: 10px;
+}
+
+/* inputs estilizados (alcance local al módulo) */
+.formRow input {
+  flex: 1;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid #6c0ff5;
+  background: #1e0033;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.formRow input:focus {
+  outline: none;
+  border-color: #a34aff;
+}
+
+/* botones nativos solo dentro de deposit/claim */
+.formRow button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg,#6c0ff5,#a34aff);
+  color: white;
+  font-weight: bold;
+  transition: transform 0.15s, opacity 0.2s;
+}
+
+.formRow button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.formRow button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* caja de balance */
+.balanceBox {
+  background: linear-gradient(90deg,#6c0ff5,#a34aff);
+  padding: 6px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+}
+
+/* selector heads/tails */
+.sideSelector {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* apuestas: grid 3x2, botones tamaño uniforme y centrados */
+.betSelector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  justify-items: center;           /* centra cada celda */
+}
+
+.betSelector button {
+  width: 100px;                    /* ← mismo ancho para todos */
+  text-align: center;
+  justify-content: center;
+}
+
+/* resultado */
+.resultBox {
+  margin-top: 8px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.resultBox span {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  width: 100%;
+  text-align: center;
+}
+
+.won { background: #1de9b6; color: #fff; }
+.lost { background: #ff1744; color: #fff; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hub {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .hubHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .balanceBox {
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+
+  /* En móvil, 2 columnas de apuestas para más aire */
+  .betSelector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* solo los botones nativos de deposit/claim */
+  .formRow button { width: 100%; }
+}

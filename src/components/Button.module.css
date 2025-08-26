@@ -1,0 +1,37 @@
+.button {
+  padding: 8px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  border: none;
+  margin: 3px;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.primary {
+  background: linear-gradient(45deg, #6b00b6, #440074);
+  color: white;
+}
+
+.primary:active {
+  transform: scale(0.98);
+}
+
+.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ghost {
+  background: #333;
+  color: #fff;
+}
+
+.ghost:hover {
+  filter: brightness(1.2);
+}
