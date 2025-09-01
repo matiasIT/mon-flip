@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import { useAccount, useWriteContract } from "wagmi";
 import { erc20Abi } from "../utils/erc20Abi";
 
-const CONTRACT_ADDRESS = "0x6918CC83ae3959d9f7a1EfF1e5c2BcF4Cf283c6a";
+const CONTRACT_ADDRESS = "0xd360F5632F9727Cd7bD00A0e35563b25c6Ff2326";
 const WRAPPED_MONAD = "0x760AfE86e5de5fa0Ee542fc7B7B713e1c5425701";
 const MAX_UINT256 = BigInt("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
