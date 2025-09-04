@@ -15,9 +15,9 @@ import hubStyles from "../../components/hub.module.css";
 import { coinflipAbi } from "../../utils/coinflipAbi";
 
 const COINFLIP_ADDRESS = "0xd360f5632f9727cd7bd00a0e35563b25c6ff2326";
-const BETS = [0.1, 0.25, 0.5, 1, 3, 5] as const;
+const BETS = [0.1, 0.5, 1, 3, 5, 10] as const;
 
-type Side = "chog" | "molandak";
+type Side = "heads" | "tails";
 
 type PlayedEventArgs = {
   player: `0x${string}`;
@@ -33,8 +33,8 @@ export default function CoinflipPage() {
   const currentChainId = useChainId();
 
   const [localBalance, setLocalBalance] = useState<number>(0);
-  const [selection, setSelection] = useState<Side>("chog");
-  const [coinSide, setCoinSide] = useState<Side>("chog");
+  const [selection, setSelection] = useState<Side>("heads");
+  const [coinSide, setCoinSide] = useState<Side>("heads");
   const [flipping, setFlipping] = useState(false);
   const [bet, setBet] = useState<number>(0.1);
   const [depositAmount, setDepositAmount] = useState("");
@@ -114,7 +114,7 @@ export default function CoinflipPage() {
         address: COINFLIP_ADDRESS,
         abi: coinflipAbi,
         functionName: "play",
-        args: [BigInt(Math.floor(bet * 1e18)), selection === "chog"],
+        args: [BigInt(Math.floor(bet * 1e18)), selection === "heads"],
       });
       setTxHash(hash as `0x${string}`);
     } catch {
@@ -151,7 +151,7 @@ export default function CoinflipPage() {
     }
 
     if (playedArgs) {
-      const outcomeSide: Side = playedArgs.outcome ? "chog": "molandak";
+      const outcomeSide: Side = playedArgs.outcome ? "heads" : "tails";
       setCoinSide(outcomeSide);
       setFlipping(true);
 
@@ -239,27 +239,27 @@ export default function CoinflipPage() {
         <Coin
           side={coinSide}
           flipping={flipping}
-          chogImage="/chog.png"
-          molandakImage="/molandak.png"
+          headsImage="/heads.png"
+          tailsImage="/tails.png"
         />
 
-        {/* Chog / Molandak */}
+        {/* Heads / Tails */}
         <div className={hubStyles.sideSelector}>
           <Button
-            variant={selection === "chog" ? "primary" : "ghost"}
+            variant={selection === "heads" ? "primary" : "ghost"}
             onClick={() => {
-              setSelection("chog");
-              setCoinSide("chog");
+              setSelection("heads");
+              setCoinSide("heads");
             }}
             disabled={isBusy}
           >
-            Chog
+            Heads
           </Button>
           <Button
-            variant={selection === "molandak" ? "primary" : "ghost"}
+            variant={selection === "tails" ? "primary" : "ghost"}
             onClick={() => {
-              setSelection("molandak");
-              setCoinSide("molandak");
+              setSelection("tails");
+              setCoinSide("tails");
             }}
             disabled={isBusy}
           >
