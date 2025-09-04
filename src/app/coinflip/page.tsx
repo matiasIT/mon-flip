@@ -15,7 +15,7 @@ import hubStyles from "../../components/hub.module.css";
 import { coinflipAbi } from "../../utils/coinflipAbi";
 
 const COINFLIP_ADDRESS = "0xd360f5632f9727cd7bd00a0e35563b25c6ff2326";
-const BETS = [0.1, 0.5, 1, 3, 5, 10] as const;
+const BETS = [0.1, 0.25, 0.5, 1, 3, 5] as const;
 
 type Side = "heads" | "tails";
 
