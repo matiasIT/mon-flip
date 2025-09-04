@@ -151,7 +151,7 @@ export default function CoinflipPage() {
     }
 
     if (playedArgs) {
-      const outcomeSide: Side = playedArgs.outcome ? "heads" : "tails";
+      const outcomeSide: Side = playedArgs.outcome ? "chog" : "molandak";
       setCoinSide(outcomeSide);
       setFlipping(true);
 
