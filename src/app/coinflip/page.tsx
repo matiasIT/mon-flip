@@ -239,8 +239,8 @@ export default function CoinflipPage() {
         <Coin
           side={coinSide}
           flipping={flipping}
-          headsImage="/heads.png"
-          tailsImage="/tails.png"
+          chogImage="/heads.png"
+          molandakImage="/tails.png"
         />
 
         {/* Heads / Tails */}
