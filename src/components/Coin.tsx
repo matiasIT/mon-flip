@@ -8,8 +8,8 @@ type Side = "chog" | "molandak";
 type CoinProps = {
   side: Side;
   flipping: boolean;
-  chogImage?: string;     // ruta imagen Chog
-  molandakImage?: string; // ruta imagen Molandak
+  chogImage?: string;      // ruta imagen chog
+  molandakImage?: string;  // ruta imagen molandak
 };
 
 export default function Coin({ side, flipping, chogImage, molandakImage }: CoinProps) {
@@ -32,6 +32,7 @@ export default function Coin({ side, flipping, chogImage, molandakImage }: CoinP
           "Chog"
         )}
       </div>
+
       <div className={styles.back}>
         {molandakImage ? (
           <Image
@@ -48,4 +49,3 @@ export default function Coin({ side, flipping, chogImage, molandakImage }: CoinP
     </motion.div>
   );
 }
-
