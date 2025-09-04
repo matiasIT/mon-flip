@@ -253,7 +253,7 @@ export default function CoinflipPage() {
             }}
             disabled={isBusy}
           >
-            Heads
+            Chog
           </Button>
           <Button
             variant={selection === "tails" ? "primary" : "ghost"}
@@ -263,7 +263,7 @@ export default function CoinflipPage() {
             }}
             disabled={isBusy}
           >
-            Tails
+            Molandak
           </Button>
         </div>
 
