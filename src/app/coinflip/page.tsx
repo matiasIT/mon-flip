@@ -114,7 +114,7 @@ export default function CoinflipPage() {
         address: COINFLIP_ADDRESS,
         abi: coinflipAbi,
         functionName: "play",
-        args: [BigInt(Math.floor(bet * 1e18)), selection === "heads"],
+        args: [BigInt(Math.floor(bet * 1e18)), selection === "chog"],
       });
       setTxHash(hash as `0x${string}`);
     } catch {
@@ -246,20 +246,20 @@ export default function CoinflipPage() {
         {/* Heads / Tails */}
         <div className={hubStyles.sideSelector}>
           <Button
-            variant={selection === "heads" ? "primary" : "ghost"}
+            variant={selection === "chog" ? "primary" : "ghost"}
             onClick={() => {
-              setSelection("heads");
-              setCoinSide("heads");
+              setSelection("chog");
+              setCoinSide("chog");
             }}
             disabled={isBusy}
           >
             Chog
           </Button>
           <Button
-            variant={selection === "tails" ? "primary" : "ghost"}
+            variant={selection === "molandak" ? "primary" : "ghost"}
             onClick={() => {
-              setSelection("tails");
-              setCoinSide("tails");
+              setSelection("molandak");
+              setCoinSide("molandak");
             }}
             disabled={isBusy}
           >
