@@ -33,8 +33,8 @@ export default function CoinflipPage() {
   const currentChainId = useChainId();
 
   const [localBalance, setLocalBalance] = useState<number>(0);
-  const [selection, setSelection] = useState<Side>("heads");
-  const [coinSide, setCoinSide] = useState<Side>("heads");
+  const [selection, setSelection] = useState<Side>("chog");
+  const [coinSide, setCoinSide] = useState<Side>("chog");
   const [flipping, setFlipping] = useState(false);
   const [bet, setBet] = useState<number>(0.1);
   const [depositAmount, setDepositAmount] = useState("");
@@ -114,7 +114,7 @@ export default function CoinflipPage() {
         address: COINFLIP_ADDRESS,
         abi: coinflipAbi,
         functionName: "play",
-        args: [BigInt(Math.floor(bet * 1e18)), selection === "heads"],
+        args: [BigInt(Math.floor(bet * 1e18)), selection === "chog"],
       });
       setTxHash(hash as `0x${string}`);
     } catch {
@@ -151,7 +151,7 @@ export default function CoinflipPage() {
     }
 
     if (playedArgs) {
-      const outcomeSide: Side = playedArgs.outcome ? "chog" : "molandak";
+      const outcomeSide: Side = playedArgs.outcome ? "chog": "molandak";
       setCoinSide(outcomeSide);
       setFlipping(true);
 
@@ -239,8 +239,8 @@ export default function CoinflipPage() {
         <Coin
           side={coinSide}
           flipping={flipping}
-          headsImage="/chog.png"
-          tailsImage="/molandak.png"
+          chogImage="/chog.png"
+          molandakImage="/molandak.png"
         />
 
         {/* Chog / Molandak */}
@@ -253,7 +253,7 @@ export default function CoinflipPage() {
             }}
             disabled={isBusy}
           >
-            Heads
+            Chog
           </Button>
           <Button
             variant={selection === "molandak" ? "primary" : "ghost"}
