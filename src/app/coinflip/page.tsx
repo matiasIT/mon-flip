@@ -17,7 +17,7 @@ import { coinflipAbi } from "../../utils/coinflipAbi";
 const COINFLIP_ADDRESS = "0xd360f5632f9727cd7bd00a0e35563b25c6ff2326";
 const BETS = [0.1, 0.25, 0.5, 1, 3, 5] as const;
 
-type Side = "heads" | "tails";
+type Side = "chog" | "molandak";
 
 type PlayedEventArgs = {
   player: `0x${string}`;
@@ -151,7 +151,7 @@ export default function CoinflipPage() {
     }
 
     if (playedArgs) {
-      const outcomeSide: Side = playedArgs.outcome ? "heads" : "tails";
+      const outcomeSide: Side = playedArgs.outcome ? "chog" : "molandak";
       setCoinSide(outcomeSide);
       setFlipping(true);
 
@@ -239,27 +239,27 @@ export default function CoinflipPage() {
         <Coin
           side={coinSide}
           flipping={flipping}
-          headsImage="/heads.png"
-          tailsImage="/tails.png"
+          headsImage="/chog.png"
+          tailsImage="/molandak.png"
         />
 
-        {/* Heads / Tails */}
+        {/* Chog / Molandak */}
         <div className={hubStyles.sideSelector}>
           <Button
-            variant={selection === "heads" ? "primary" : "ghost"}
+            variant={selection === "chog" ? "primary" : "ghost"}
             onClick={() => {
-              setSelection("heads");
-              setCoinSide("heads");
+              setSelection("chog");
+              setCoinSide("chog");
             }}
             disabled={isBusy}
           >
             Heads
           </Button>
           <Button
-            variant={selection === "tails" ? "primary" : "ghost"}
+            variant={selection === "molandak" ? "primary" : "ghost"}
             onClick={() => {
-              setSelection("tails");
-              setCoinSide("tails");
+              setSelection("molandak");
+              setCoinSide("molandak");
             }}
             disabled={isBusy}
           >
