@@ -17,7 +17,7 @@ import { coinflipAbi } from "../../utils/coinflipAbi";
 const COINFLIP_ADDRESS = "0xd360f5632f9727cd7bd00a0e35563b25c6ff2326";
 const BETS = [0.1, 0.25, 0.5, 1, 3, 5] as const;
 
-type Side = "heads" | "tails";
+type Side = "chog" | "molandak";
 
 type PlayedEventArgs = {
   player: `0x${string}`;
@@ -33,8 +33,8 @@ export default function CoinflipPage() {
   const currentChainId = useChainId();
 
   const [localBalance, setLocalBalance] = useState<number>(0);
-  const [selection, setSelection] = useState<Side>("heads");
-  const [coinSide, setCoinSide] = useState<Side>("heads");
+  const [selection, setSelection] = useState<Side>("chog");
+  const [coinSide, setCoinSide] = useState<Side>("chog");
   const [flipping, setFlipping] = useState(false);
   const [bet, setBet] = useState<number>(0.1);
   const [depositAmount, setDepositAmount] = useState("");
